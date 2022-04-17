@@ -59,11 +59,9 @@ public class CourseServiceImpl implements CourseService {
             deleteCourseUserInAuthUser = true;
         }
         courseRepository.delete(courseModel);
-        //enviar delecao para o authuser
         if(deleteCourseUserInAuthUser){
             authUserClient.deleteCourseInAuthUser(courseModel.getCourseId());
         }
-
     }
 
     @Override
